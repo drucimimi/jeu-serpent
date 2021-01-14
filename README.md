@@ -1,3 +1,3 @@
-# jeu-serpent-v1
+# jeu-serpent
 
 Ceci est la deuxième version du jeu du serpent.
