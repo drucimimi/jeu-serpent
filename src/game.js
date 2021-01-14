@@ -52,9 +52,9 @@ export default class Game{
                   this.applee.setNewPosition(this.widthInBlocks, this.heightInBlocks);
               } while(this.applee.isOnSnake(this.snakee));
 
-              if(this.score % 10 == 0){
+              /*if(this.score % 10 == 0){
                   this.speedUp();
-              }
+              }*/
           }
           this.ctx.clearRect(0,0,this.canvasWidth,this.canvasHeight);
           Drawing.drawScore(this.ctx, this.centreX, this.centreY, this.score);
