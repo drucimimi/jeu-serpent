@@ -25,7 +25,6 @@ window.onload = () => {
                 break;
             case 32:
                 myGame.launch();
-                myGame2.launch();
                 return;
             default:
                 return;
