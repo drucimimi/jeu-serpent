@@ -51,7 +51,7 @@ Dernière version stable : 2.0
 
 Dernière version : 2.0
 
-Liste des versions : [Cliquer pour afficher](https://github.com/your/drucimimi/tags)
+Liste des versions : [Cliquer pour afficher](https://github.com/drucimimi/jeu-serpent/tags)
 
 ## Auteurs
 Drucilla DEROCHE
