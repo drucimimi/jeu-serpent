@@ -1,6 +1,5 @@
 # jeu-serpent
-Ceci est la deuxième version du jeu du serpent. Il comprend les nouveautés JS ES6/7, les outils npm, webpack et babel.
-Pour accéder au jeu, cliquez sur le lien suivant: https://drucimimi.github.io/jeu-serpent
+Il s'agit du jeu du serpent entièrement conçu en JavaScript. Vous pouvez déplacer le serpent en utilisant les flèches et vous obtenez 1 point à chaque pomme mangée. A chaque dizaine de points, la vitesse du jeu augmente 2 fois plus.
 
 ## Pour commencer
 1-Installer l'éditeur de texte choisi
