@@ -14,7 +14,7 @@ Il s'agit du jeu du serpent entièrement conçu en JavaScript. Vous pouvez dirig
 
 6-Publier le jeu
 
-## Pré-requis
+### Pré-requis
 -Un outil de maquettage de sites web
 
 -Un éditeur de texte
@@ -28,7 +28,7 @@ Si vous souhaitez voir le site en ligne, sautez cette étape.
 
 Sinon, téléchargez le projet via GitHub ou en ligne de commande: git clone https://github.com/drucimimi/jeu-serpent.git
 
-### Démarrage
+## Démarrage
 Pour lancer le projet en ligne, tapez l'url suivante dans votre navigateur web : https://drucimimi.github.io/jeu-serpent
 
 Pour lancer le projet en local, lancer le fichier index.html avec votre navigateur web.
