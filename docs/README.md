@@ -1,5 +1,5 @@
 # jeu-serpent
-Il s'agit du jeu du serpent entièrement conçu en JavaScript. Vous pouvez déplacer le serpent en utilisant les flèches et vous obtenez 1 point à chaque pomme mangée. A chaque dizaine de points, la vitesse du jeu augmente 2 fois plus.
+Il s'agit du jeu du serpent entièrement conçu en JavaScript. Vous pouvez diriger le serpent en utilisant les flèches du clavier et vous obtenez 1 point à chaque pomme mangée. A chaque dizaine de points, la vitesse du jeu augmente 2 fois plus.
 
 ## Pour commencer
 1-Installer l'éditeur de texte choisi
