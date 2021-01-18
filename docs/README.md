@@ -35,11 +35,17 @@ Pour lancer le projet en ligne, tapez l'url suivante dans votre navigateur web :
 Pour lancer le projet en local, lancer le fichier index.html avec votre navigateur web.
 
 ## Fabriqué avec
-Atom - éditeur de texte
+[Atom](https://atom.io) - éditeur de texte
 
 HTML5/CSS3
 
-JavaScript ES6/7
+JavaScript ES5/6/7
+
+[Node.js](https://nodejs.org/en/) - Gestionnaire de paquets NPM
+
+[Webpack](https://webpack.js.org/) - Utilisation des modules JavaScript ES6
+
+[Babel](https://babeljs.io/) - Compilateur JavaScript
 
 ## Versions
 Dernière version stable : 2.0
