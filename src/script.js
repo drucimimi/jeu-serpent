@@ -1,29 +1,31 @@
+/*Importation du compilateur babel ainsi que la classe Game*/
 import "babel-polyfill";
 import Game from "./game.js";
 
-
+/*Au chargement de la page, le jeu se lance*/
 window.onload = () => {
 
     let myGame = new Game();
     myGame.init();
 
+    /*Diriger le serpent avec les flèches du clavier*/
     document.onkeydown = (e) => {
-        const key = e.keyCode;
+        const key = e.key;
         let newDirection;
         switch(key){
-            case 37:
+            case "left":
                 newDirection = "left";
                 break;
-            case 38:
+            case "up":
                 newDirection = "up";
                 break;
-            case 39:
+            case "right":
                 newDirection = "right";
                 break;
-            case 40:
+            case "down":
                 newDirection = "down";
                 break;
-            case 32:
+            case "Escape":
                 myGame.launch();
                 return;
             default:

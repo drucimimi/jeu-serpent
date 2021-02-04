@@ -4,11 +4,11 @@ module.exports = {
     mode: 'development',
     entry: ["babel-polyfill","./src/script.js"],
     output:{
-        path: path.resolve(__dirname, "dist"),
+        path: path.resolve(__dirname, "docs"),
         filename: "bundle.js"
     },
     devServer: {
-        contentBase: path.resolve(__dirname, "dist"),
+        contentBase: path.resolve(__dirname, "docs"),
         open: true
     },
     module:{

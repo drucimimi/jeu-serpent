@@ -1,25 +1,28 @@
+/*Importation des classes Apple, Snake et Drawing*/
 import Snake from "./snake.js";
 import Apple from "./apple.js";
 import Drawing from "./drawing.js";
 
-export default class Game{
-  constructor(canvasWidth = 900, canvasHeight = 600){
-    this.canvasWidth = canvasWidth;
-    this.canvasHeight = canvasHeight;
-    this.blockSize = 30;
-    this.canvas = document.createElement('canvas');
-    this.ctx = this.canvas.getContext('2d');
-    this.widthInBlocks = this.canvasWidth/this.blockSize;
-    this.heightInBlocks = this.canvasHeight/this.blockSize;
-    this.centreX = this.canvasWidth / 2;
-    this.centreY = this.canvasHeight / 2;
-    this.delay = 100;
-    this.snakee;
-    this.applee;
-    this.score;
-    this.timeOut;
-  }
-  init(){
+export default class Game{ //exportation de la classe Game
+    //Propriétés
+    constructor(canvasWidth = 900, canvasHeight = 600){
+        this.canvasWidth = canvasWidth;
+        this.canvasHeight = canvasHeight;
+        this.blockSize = 30;
+        this.canvas = document.createElement('canvas');
+        this.ctx = this.canvas.getContext('2d');
+        this.widthInBlocks = this.canvasWidth/this.blockSize;
+        this.heightInBlocks = this.canvasHeight/this.blockSize;
+        this.centreX = this.canvasWidth / 2;
+        this.centreY = this.canvasHeight / 2;
+        this.delay = 100;
+        this.snakee;
+        this.applee;
+        this.score;
+        this.timeOut;   
+    }
+
+    init(){ //ajout du bac à sable du jeu
       this.canvas.width = this.canvasWidth;
       this.canvas.height = this.canvasHeight;
       this.canvas.style.border = "30px solid gray";
@@ -28,9 +31,9 @@ export default class Game{
       this.canvas.style.backgroundColor = "#ddd";
       document.body.appendChild(this.canvas);
       this.launch();
-  }
+    }
 
-  launch(){
+  launch(){ //ajout du serpent, de la pomme et du score dans le bac
       this.snakee = new Snake("right", [6,4],[5,4],[4,4],[3,4],[2,4]);
       this.applee = new Apple();
       this.score = 0;
@@ -39,7 +42,7 @@ export default class Game{
       this.refreshCanvas();
   }
 
-  refreshCanvas(){
+  refreshCanvas(){ //lancement d'une partie
       this.snakee.advance();
       if (this.snakee.checkCollision(this.widthInBlocks, this.heightInBlocks)){
           Drawing.gameOver(this.ctx, this.centreX, this.centreY);
@@ -64,7 +67,7 @@ export default class Game{
        }
   }
 
-  speedUp(){
+  speedUp(){ //accélération de la cadence du jeu
       this.delay /= 2;
   }
 }

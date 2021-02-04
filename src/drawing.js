@@ -1,5 +1,5 @@
-export default class Drawing{
-  static gameOver(ctx, centreX, centreY) {
+export default class Drawing{ //exportation de la classe Drawing
+  static gameOver(ctx, centreX, centreY) { //popup qui affiche que t'as perdu
       ctx.save();
       ctx.font = "bold 70px sans-serif";
       ctx.fillStyle = "#000";
@@ -14,7 +14,7 @@ export default class Drawing{
       ctx.fillText("Appuyer sur la touche Espace pour rejouer", centreX, centreY - 120);
       ctx.restore();
   }
-  static drawScore(ctx, centreX, centreY, score){
+  static drawScore(ctx, centreX, centreY, score){ //permet d'afficher le score
       ctx.save();
       ctx.font = "bold 200px sans-serif";
       ctx.fillStyle = "gray";
@@ -23,7 +23,7 @@ export default class Drawing{
       ctx.fillText(score.toString(), centreX, centreY);
       ctx.restore();
   }
-  static drawSnake(ctx, blockSize, snake){
+  static drawSnake(ctx, blockSize, snake){ //permet d'afficher le serpent
     ctx.save();
     ctx.fillStyle="#ff0000";
     for (let block of snake.body){
@@ -31,7 +31,7 @@ export default class Drawing{
     }
     ctx.restore();
   }
-  static drawApple(ctx, blockSize, apple) {
+  static drawApple(ctx, blockSize, apple) { //permet d'afficher la pomme
     const radius = blockSize/2;
     const x = apple.position[0]*blockSize + radius;
     const y = apple.position[1]*blockSize + radius;
@@ -42,7 +42,7 @@ export default class Drawing{
     ctx.fill();
     ctx.restore();
   }
-  static drawBlock(ctx, position, blockSize){
+  static drawBlock(ctx, position, blockSize){ //permet de construire le serpent par bloc
       const [x,y] = position;
       ctx.fillRect(x*blockSize,y*blockSize,blockSize,blockSize);
   }
