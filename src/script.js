@@ -13,19 +13,23 @@ window.onload = () => {
         const key = e.key;
         let newDirection;
         switch(key){
-            case "left":
+            case "Left":
+            case "ArrowLeft":    
                 newDirection = "left";
                 break;
-            case "up":
+            case "Up":
+            case "ArrowUp":   
                 newDirection = "up";
                 break;
-            case "right":
+            case "Right":
+            case "ArrowRight":
                 newDirection = "right";
                 break;
-            case "down":
+            case "Down":
+            case "ArrowDown":
                 newDirection = "down";
                 break;
-            case "Escape":
+            case "Enter":
                 myGame.launch();
                 return;
             default:
