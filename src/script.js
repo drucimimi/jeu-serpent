@@ -2,8 +2,17 @@
 import "babel-polyfill";
 import Game from "./game.js";
 
-/*Au chargement de la page, le jeu se lance*/
+/*Au chargement de la page, le jeu se lance seulement depuis un ordinateur*/
 window.onload = () => {
+
+    function newContent(){
+        let screenSize = window.screen.width;
+        if (screenSize <= 1024){
+          document.open();
+          document.write("<p>Le site n'est pas compatible avec les appareils mobiles.</p>");
+          document.close(); 
+        }  
+    }
 
     let myGame = new Game();
     myGame.init();
