@@ -47,9 +47,9 @@ JavaScript ES5/6/7
 [Babel](https://babeljs.io/) - Compilateur JavaScript
 
 ## Versions
-Dernière version stable : 2.0.2
+Dernière version stable : 2.0.3
 
-Dernière version : 2.0.2
+Dernière version : 2.0.3
 
 Liste des versions : [Cliquer pour afficher](https://github.com/drucimimi/jeu-serpent/tags)
 
