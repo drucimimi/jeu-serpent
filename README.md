@@ -29,7 +29,7 @@ Si vous souhaitez voir le site en ligne, sautez cette étape.
 Sinon, téléchargez le projet via GitHub ou en ligne de commande: git clone https://github.com/drucimimi/jeu-serpent.git
 
 ## Démarrage
-Pour lancer le projet en ligne, tapez l'url suivante dans votre navigateur web : https://jeu-serpent.netlify.app
+Pour lancer le projet en ligne, tapez l'url suivante dans votre navigateur web : https://jeu-serpent-2.netlify.app
 
 Pour lancer le projet en local, lancer la commande npm run dev depuis votre terminal.
 
