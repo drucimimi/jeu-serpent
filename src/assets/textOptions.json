@@ -1,4 +1,4 @@
 {
-  "gameRules" : "Diriger votre serpent rouge, le faire manger la pomme verte sans toucher les bords. Attention ! La vitesse du jeu est multiplié par 2 à chaque dizaine de points. Pour diriger votre serpent, utilisez les flèches de votre clavier (sur ordinateur) ou glissez votre doigt (sur mobile).",
+  "gameRules" : "Diriger votre serpent rouge, le faire manger la pomme verte sans toucher les bords. Attention ! La vitesse du jeu est multiplié par 2 à chaque dizaine de points. Pour diriger votre serpent, utilisez les flèches de votre clavier (sur ordinateur) ou glissez les boutons fournies (sur mobile).",
   "gameOver": "Vous avez perdu !"
 }
