@@ -48,5 +48,4 @@
     <button slot="btnPlay" on:click={restartGame}><Icon name="replay"/> Rejouer</button>
 </Modal>
 
-
 <Game bind:initialize={initialize} bind:restart={restart} openModal={openModal} bind:score={score} gameOver={setGameOver} bind:maximum={maximum} />

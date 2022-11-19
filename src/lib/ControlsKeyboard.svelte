@@ -3,6 +3,8 @@
     import Snake from "../utils/snake.js"
 
     export let snakee
+    export  let isTablet
+
     if(window.screen.width < 768){
         snakee = new Snake("right", [3,2],[2,2])
     } else {
@@ -14,9 +16,16 @@
 <style>
     .controls-keyboard{
         position: relative;
-        height: 100px;
         width: 100px;
+        height: 100px;
         margin: 0 auto;
+    }
+    .controls-keyboard-tablet{
+        position: relative;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        align-self: center;
     }
     .arrows{
         margin: 0;
@@ -47,7 +56,7 @@
         translate: 50% -50%;
     }
 </style>
-<div class="controls-keyboard">
+<div class={isTablet ? "controls-keyboard-tablet" : "controls-keyboard"}>
     <div class="arrow-up">
         <button class="arrows" on:click="{ () => setDirectionSnake('up')}"><Icon name="arrowUp"/></button>
     </div>

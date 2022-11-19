@@ -13,19 +13,27 @@
     let canvas
     let context
     let blockSize
+    let canvasWidth
+    let canvasHeight
     if(window.screen.width < 768){
         blockSize = 15
+        canvasWidth = window.screen.width - 200
+        canvasHeight = window.screen.width - 300
     } else {
         blockSize = 30
+        canvasWidth = 600
+        canvasHeight = 400
     }
-    let canvasWidth = window.screen.width - 200
-    let canvasHeight = window.screen.width - 300
     let widthInBlocks = canvasWidth/blockSize
     let heightInBlocks = canvasHeight/blockSize
     let delay
     let snakee
     let applee
     let timeOut
+
+    const userAgent = navigator.userAgent.toLowerCase()
+    const isMobileTablet = /(mobile|ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(userAgent)
+    const isTablet = /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(userAgent)
 
     onMount( () => {
         context = canvas.getContext('2d')
@@ -69,7 +77,7 @@
     const launch = () => {  //ajout du serpent, de la pomme et du score dans le bac
         if(window.screen.width < 768){
             snakee = new Snake("right", [3,2],[2,2])
-            applee = new Apple([5, 5])
+            applee = new Apple([3, 3])
         } else {
             snakee = new Snake("right", [6,4],[5,4],[4,4],[3,4],[2,4])
             applee = new Apple()
@@ -150,15 +158,19 @@
         margin: 3rem auto;
         background-color: #ddd;
     }
-    @media screen and (min-width: 768px){
+    @media (min-width: 768px){
         .game{
             border: 30px solid gray;
         }
     }
+    .game-container{
+        display: flex;
+    }
 </style>
 
-<canvas bind:this={canvas} class="game" />
-
-{#if navigator.userAgent.toLowerCase().match(/mobile/i)}
-    <ControlsKeyboard bind:snakee={snakee} />
-{/if}
+<div class={isTablet ? "game-container" : ""}>
+    <canvas bind:this={canvas} class="game" />
+    {#if isMobileTablet}
+        <ControlsKeyboard bind:snakee={snakee} isTablet={isTablet}/>
+    {/if}
+</div>
