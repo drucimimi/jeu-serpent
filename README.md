@@ -43,9 +43,9 @@ Node.js - Gestionnaire de paquets NPM
 Vite - Framework JavaScript
 
 ## Versions
-Dernière version stable : 3.0.0
+Dernière version stable : 3.0.1
 
-Dernière version : 3.0.0
+Dernière version : 3.0.1
 
 Liste des versions : [Cliquer pour afficher](https://github.com/drucimimi/jeu-serpent/tags)
 

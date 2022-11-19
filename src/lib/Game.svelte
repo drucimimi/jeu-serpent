@@ -12,9 +12,14 @@
 
     let canvas
     let context
-    let blockSize = 30
+    let blockSize
+    if(window.screen.width < 768){
+        blockSize = 15
+    } else {
+        blockSize = 30
+    }
     let canvasWidth = window.screen.width - 200
-    let canvasHeight = 400
+    let canvasHeight = window.screen.width - 300
     let widthInBlocks = canvasWidth/blockSize
     let heightInBlocks = canvasHeight/blockSize
     let delay
@@ -141,9 +146,14 @@
 
 <style>
     .game{
-        border: 30px solid gray;
+        border: 10px solid gray;
         margin: 3rem auto;
         background-color: #ddd;
+    }
+    @media screen and (min-width: 768px){
+        .game{
+            border: 30px solid gray;
+        }
     }
 </style>
 
