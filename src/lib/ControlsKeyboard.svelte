@@ -4,8 +4,9 @@
 
     export let snakee
     export  let isTablet
+    export let isMobileLandscape
 
-    if(window.screen.width < 768){
+    if(!isMobileLandscape){
         snakee = new Snake("right", [3,2],[2,2])
     } else {
         snakee = new Snake("right", [6,4],[5,4],[4,4],[3,4],[2,4])
@@ -16,14 +17,14 @@
 <style>
     .controls-keyboard{
         position: relative;
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 150px;
         margin: 0 auto;
     }
     .controls-keyboard-tablet{
         position: relative;
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 150px;
         margin: 0 auto;
         align-self: center;
     }
@@ -32,6 +33,7 @@
         padding: 0;
         background-color: transparent;
         border: none;
+        outline: none;
     }
     .arrow-up{
         position: absolute;
@@ -56,7 +58,7 @@
         translate: 50% -50%;
     }
 </style>
-<div class={isTablet ? "controls-keyboard-tablet" : "controls-keyboard"}>
+<div class={isTablet || isMobileLandscape ? "controls-keyboard-tablet" : "controls-keyboard"}>
     <div class="arrow-up">
         <button class="arrows" on:click="{ () => setDirectionSnake('up')}"><Icon name="arrowUp"/></button>
     </div>
