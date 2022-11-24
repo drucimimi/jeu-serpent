@@ -10,7 +10,7 @@
         background-color: #212121;
         color: #eee;
         padding: 1rem 1.5rem;
-        margin: 2rem 0;
+        margin: 0.5rem 2rem;
     }
     .modal-header h1 {
         font-size: 1.6em;
@@ -20,6 +20,7 @@
         max-width: 360px;
         font-size: 0.8em;
         word-break: break-all;
+        margin: 0 auto;
     }
     @media screen and (min-width: 768px) {
         h1{

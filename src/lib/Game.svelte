@@ -1,4 +1,6 @@
 <script>
+// @ts-nocheck
+
     import {onMount} from 'svelte'
     import Snake from "../utils/snake.js"
     import Apple from "../utils/apple.js"
@@ -10,15 +12,27 @@
     export let maximum
     export let initialize = false
 
+    const userAgent = navigator.userAgent.toLowerCase()
+    //mobile landscape with if landsacpe = 90 => window.orientation= 90 else window.orientation = 0
+    //const isMobileTablet = /(mobile|ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(userAgent)
+    const isMobileTablet = /mobile/.test(userAgent)
+    const isTablet = /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(userAgent)
+    const mobileLandscape = window.orientation
+
     let canvas
     let context
     let blockSize
     let canvasWidth
     let canvasHeight
-    if(window.screen.width < 768){
+    if((isMobileTablet && window.screen.width < 768) || (isMobileTablet && mobileLandscape === 90)){
         blockSize = 15
-        canvasWidth = window.screen.width - 200
-        canvasHeight = window.screen.width - 300
+        if(mobileLandscape === 0){
+            canvasWidth = window.screen.width - 100
+            canvasHeight = window.screen.width - 200
+        } else if(mobileLandscape === 90){
+            canvasWidth = window.screen.width - 250
+            canvasHeight = window.screen.height - 300
+        }
     } else {
         blockSize = 30
         canvasWidth = 600
@@ -30,10 +44,6 @@
     let snakee
     let applee
     let timeOut
-
-    const userAgent = navigator.userAgent.toLowerCase()
-    const isMobileTablet = /(mobile|ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(userAgent)
-    const isTablet = /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(userAgent)
 
     onMount( () => {
         context = canvas.getContext('2d')
@@ -75,7 +85,7 @@
         launch()
     }
     const launch = () => {  //ajout du serpent, de la pomme et du score dans le bac
-        if(window.screen.width < 768){
+        if( isMobileTablet || mobileLandscape === 90){
             snakee = new Snake("right", [3,2],[2,2])
             applee = new Apple([3, 3])
         } else {
@@ -84,7 +94,7 @@
         }
         score = 0
         clearTimeout(timeOut)
-        if(window.screen.width < 768){
+        if(isMobileTablet || mobileLandscape === 90){
             delay = 300
         } else {
             delay = 100
@@ -155,22 +165,17 @@
 <style>
     .game{
         border: 10px solid gray;
-        margin: 3rem auto;
+        margin: 0 auto;
         background-color: #ddd;
-    }
-    @media (min-width: 768px){
-        .game{
-            border: 30px solid gray;
-        }
     }
     .game-container{
         display: flex;
     }
 </style>
 
-<div class={isTablet ? "game-container" : ""}>
+<div class={isTablet || (isMobileTablet && mobileLandscape === 90) ? "game-container" : ""}>
     <canvas bind:this={canvas} class="game" />
     {#if isMobileTablet}
-        <ControlsKeyboard bind:snakee={snakee} isTablet={isTablet}/>
+        <ControlsKeyboard bind:snakee={snakee} isTablet={isTablet} isMobileLandscape={(isMobileTablet && mobileLandscape === 90)}/>
     {/if}
 </div>
