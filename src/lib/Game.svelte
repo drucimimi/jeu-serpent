@@ -85,7 +85,7 @@
         launch()
     }
     const launch = () => {  //ajout du serpent, de la pomme et du score dans le bac
-        if(mobileLandscape === 90){
+        if( isMobileTablet || mobileLandscape === 90){
             snakee = new Snake("right", [3,2],[2,2])
             applee = new Apple([3, 3])
         } else {

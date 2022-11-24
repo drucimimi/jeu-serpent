@@ -6,11 +6,7 @@
     export  let isTablet
     export let isMobileLandscape
 
-    if(!isMobileLandscape){
-        snakee = new Snake("right", [3,2],[2,2])
-    } else {
-        snakee = new Snake("right", [6,4],[5,4],[4,4],[3,4],[2,4])
-    }
+    snakee = new Snake("right", [3,2],[2,2])
     const setDirectionSnake = direction => snakee.setDirection(direction)
 
 </script>

@@ -58,7 +58,7 @@ export default class Snake { //exportation de la classe Snake
         const minX = 0;
         const minY = 0;
         const maxX = widthInBlocks;
-        const maxY = heightInBlocks - 1;
+        const maxY = heightInBlocks;
         const isNotBetweenHorizontalWalls = snakeX < minX || snakeX > maxX;
         const isNotBetweenVerticalWalls = snakeY < minY || snakeY > maxY;
 
