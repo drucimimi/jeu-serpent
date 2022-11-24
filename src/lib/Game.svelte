@@ -94,7 +94,7 @@
         }
         score = 0
         clearTimeout(timeOut)
-        if(mobileLandscape === 90){
+        if(isMobileTablet || mobileLandscape === 90){
             delay = 300
         } else {
             delay = 100
