@@ -7,7 +7,7 @@
     export let isMobileLandscape
 
     snakee = new Snake("right", [3,2],[2,2])
-    const setDirectionSnake = direction => snakee.setDirection(direction)
+    const setDirectionSnake = (/** @type {string} */ direction) => snakee.setDirection(direction)
 
 </script>
 <style>

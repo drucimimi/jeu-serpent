@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 // @ts-nocheck
 
     import {onMount} from 'svelte'
@@ -6,6 +6,7 @@
     import Apple from "../utils/apple.js"
     import ControlsKeyboard from "./ControlsKeyboard.svelte";
     export let score
+    export let level
     export let gameOver
     export let openModal
     export let restart
@@ -13,8 +14,6 @@
     export let initialize = false
 
     const userAgent = navigator.userAgent.toLowerCase()
-    //mobile landscape with if landsacpe = 90 => window.orientation= 90 else window.orientation = 0
-    //const isMobileTablet = /(mobile|ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(userAgent)
     const isMobileTablet = /mobile/.test(userAgent)
     const isTablet = /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(userAgent)
     const mobileLandscape = window.orientation
@@ -93,18 +92,31 @@
             applee = new Apple()
         }
         score = 0
+        level = 1
         clearTimeout(timeOut)
         if(isMobileTablet || mobileLandscape === 90){
             delay = 300
         } else {
-            delay = 100
+            delay = 150
         }
         refreshCanvas()
     }
 
     const refreshCanvas = () => { //lancement d'une partie
+        let audioCollision = document.getElementById("collision")
+        let audioEat = document.getElementById("eat")
+        if(audioCollision != null){
+            audioCollision.delete()
+        }
+        if(audioEat != null){
+            audioEat.delete()
+        }
         snakee.advance()
         if (snakee.checkCollision(widthInBlocks, heightInBlocks)){
+            audioCollision = document.createElement("audio")
+            audioCollision.id = "collision"
+            audioCollision.src = "/serpentmur.mp3"
+            audioCollision.play()
             gameOver()
             if(score > maximum){
                 maximum=score
@@ -112,6 +124,10 @@
             }
         } else {
             if (snakee.isEatingApple(applee)){
+                let audioEat = document.createElement("audio")
+                audioEat.id = "eat"
+                audioEat.src = "/serpentquandilmange.mp3"
+                audioEat.play()
                 score++
                 snakee.ateApple = true
 
@@ -130,8 +146,9 @@
         }
     }
 
-    const speedUp = () => { //accélération de la cadence du jeu
-        delay /= 2;
+    const speedUp = () => { //accélération de la cadence du jeu et changement de niveau
+        delay /= 1.5
+        level++
     }
 
     const drawSnake = (context, blockSize, snake) => { //permet d'afficher le serpent
@@ -174,7 +191,7 @@
 </style>
 
 <div class={isTablet || (isMobileTablet && mobileLandscape === 90) ? "game-container" : ""}>
-    <canvas bind:this={canvas} class="game" />
+    <canvas bind:this={canvas} class="game"></canvas>
     {#if isMobileTablet}
         <ControlsKeyboard bind:snakee={snakee} isTablet={isTablet} isMobileLandscape={(isMobileTablet && mobileLandscape === 90)}/>
     {/if}

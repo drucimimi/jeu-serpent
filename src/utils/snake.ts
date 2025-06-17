@@ -1,6 +1,9 @@
-export default class Snake { //exportation de la classe Snake
+export default class Snake {
+    body: any; //exportation de la classe Snake
+    direction: string;
+    ateApple: boolean;
 
-    constructor(direction, ...body) {
+    constructor(direction: string, ...body: any) {
         this.body = body;
         this.direction = direction;
         this.ateApple = false;
@@ -31,7 +34,7 @@ export default class Snake { //exportation de la classe Snake
             this.ateApple = false;
     }
 
-    setDirection(newDirection) { //permet de changer de direction le serpent
+    setDirection(newDirection:string) { //permet de changer de direction le serpent
         let allowedDirections;
         switch(this.direction){
             case "left":
@@ -50,7 +53,7 @@ export default class Snake { //exportation de la classe Snake
         }
     }
 
-    checkCollision(widthInBlocks, heightInBlocks) { //vérifier s'il y a une collision contre le mur ou le serpent lui-même
+    checkCollision(widthInBlocks:number, heightInBlocks:number) { //vérifier s'il y a une collision contre le mur ou le serpent lui-même
         let wallCollision = false;
         let snakeCollision = false;
         const [head, ...rest]= this.body;
@@ -73,7 +76,7 @@ export default class Snake { //exportation de la classe Snake
         return wallCollision || snakeCollision;
     }
 
-    isEatingApple(appleToEat) { //Le serpent mange la pomme
+    isEatingApple(appleToEat:any) { //Le serpent mange la pomme
         const head = this.body[0];
         if (head[0] === appleToEat.position[0] && head[1] === appleToEat.position[1])
             return true;

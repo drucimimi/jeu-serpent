@@ -1,6 +1,7 @@
-<script>
+<script lang="ts">
     export let score
     export let maximum
+    export let level
 </script>
 <style>
     ul{
@@ -9,6 +10,7 @@
     }
 </style>
 <ul>
-    <li>Actuel : {score}</li>
-    <li>Maximum : {maximum}</li>
+    <li>Niveau : {level}</li>
+    <li>Score Actuel : {score}</li>
+    <li>Score Maximum : {maximum}</li>
 </ul>

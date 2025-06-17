@@ -1,5 +1,5 @@
-<script>
-    export let name;
+<script lang="ts">
+    export let name
     let icons = [
         {
             size: "1em",
@@ -34,4 +34,4 @@
     ]
     let icon = icons.find((e) => e.name === name)
 </script>
-<svg width={icon.size} height={icon.size} viewBox="0 0 24 24">{@html icon.svg}</svg>
+<svg width={icon?.size} height={icon?.size} viewBox="0 0 24 24">{@html icon?.svg}</svg>

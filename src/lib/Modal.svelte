@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     export let title
     export let openModal = false
     export let modalGame = false
