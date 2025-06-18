@@ -10,7 +10,7 @@
     }
 </style>
 <ul>
-    <li>Niveau : {level}</li>
+    <li>Niveau Actuel : {level}</li>
     <li>Score Actuel : {score}</li>
-    <li>Score Maximum : {maximum}</li>
+    <li>Niveau et Score Maximum : {maximum}</li>
 </ul>

@@ -118,9 +118,9 @@
             audioCollision.src = "/serpentmur.mp3"
             audioCollision.play()
             gameOver()
-            if(score > maximum){
-                maximum=score
-                localStorage.setItem("score max", maximum)
+            if(score > Number(maximum.split("Score ")[1]) || level > Number(maximum.split("Score ")[0].split("Niveau ")[1].trim())){
+                maximum=`Niveau ${level} Score ${score}`
+                localStorage.setItem("scoreLevelMax", maximum)
             }
         } else {
             if (snakee.isEatingApple(applee)){

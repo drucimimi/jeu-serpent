@@ -64,6 +64,16 @@
                         <slot name="btnPlay"></slot>
                     </div>
                 {/if}
+                {#if $$slots.btnSave && localStorage.getItem("scoreLevelMax")}
+                    <div class="footer">
+                        <slot name="btnSave"></slot>
+                    </div>
+                {/if}
+                {#if $$slots.btnRestore && !localStorage.getItem("scoreLevelMax")}
+                    <div class="footer">
+                        <slot name="btnRestore"></slot>
+                    </div>
+                {/if}
             </div>
         </div>
     </div>
